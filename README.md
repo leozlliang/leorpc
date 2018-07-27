@@ -6,7 +6,7 @@ zk: 基于zk,apache cuator做服务注册及服务发现 <br />
 demo: 可运行demo <br />
 <br/>
 待完善：<br />
-1. 限流(计划用Hytrix或guva RateLimiter完成)<br />
+1. 限流(计划用Hytrix或Guva RateLimiter完成)<br />
 2. Netty连接池化<br />
 
 
