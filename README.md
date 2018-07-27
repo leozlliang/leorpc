@@ -5,4 +5,13 @@ netty: Netty小封装，作为RPC的通讯组件 <br />
 zk: 基于zk,apache cuator做服务注册及服务发现 <br />
 demo: 可运行demo <br />
 
+<p>客户端配置：</p>
+<pre><code>
+客户端代码块
+</code></pre>
+
+<p>服务配置：</p>
+<pre><code>
+客户端代码块
+</code></pre>
 
