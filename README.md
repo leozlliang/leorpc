@@ -5,13 +5,21 @@ netty: Netty小封装，作为RPC的通讯组件 <br />
 zk: 基于zk,apache cuator做服务注册及服务发现 <br />
 demo: 可运行demo <br />
 
-<p>客户端配置：</p>
+
 <pre><code>
-客户端代码块
+客户端配置：
+    <beans>
+        <leorpc:registry address="127.0.0.1" port="2181" />
+        <leorpc:client scanPackage="com.zhili.api" />
+    </beans>
 </code></pre>
 
-<p>服务配置：</p>
 <pre><code>
-客户端代码块
+服务端配置：
+    <beans>
+        <leorpc:registry address="127.0.0.1" port="2181" />
+        <leorpc:server port="9999" scanPackage="com.zhili.api"  ></leorpc:server>
+        <bean id="testService" class="com.zhili.service.impl.TestServiceImpl" />
+    </beans>
 </code></pre>
 
