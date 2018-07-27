@@ -2,7 +2,7 @@
 <br />
 rpc-core: RPC的核心部分，对服务注册，序列化（kryo），netty传输，服务选择(service loadbalance) 等整合<br />
 rpc-netty: Netty小封装，作为RPC的通讯组件 <br />
-rpc-Zk: 基于zk,apache cuator做服务注册及服务发现 <br />
+rpc-zk: 基于zk,apache cuator做服务注册及服务发现 <br />
 rpc-demo: 可运行demo <br />
 <br/>
 待完善：<br />
