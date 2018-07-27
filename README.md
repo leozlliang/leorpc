@@ -12,6 +12,12 @@ demo: 可运行demo <br />
         &ltleorpc:registry address="127.0.0.1" port="2181" /&gt
         &ltleorpc:client scanPackage="com.zhili.api" /&gt
     &lt/beans&gt
+具体接口：
+@RpcService
+public interface TestService {
+    public String testMethod(String arg1, int arg2);
+}
+    
 </code></pre>
 
 <pre><code>
