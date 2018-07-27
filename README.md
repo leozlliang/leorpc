@@ -8,18 +8,18 @@ demo: 可运行demo <br />
 
 <pre><code>
 客户端配置：
-    <beans>
-        <leorpc:registry address="127.0.0.1" port="2181" />
-        <leorpc:client scanPackage="com.zhili.api" />
-    </beans>
+    &ltbeans&gt
+        &ltleorpc:registry address="127.0.0.1" port="2181" /&gt
+        &ltleorpc:client scanPackage="com.zhili.api" /&gt
+    &lt/beans&gt
 </code></pre>
 
 <pre><code>
 服务端配置：
-    <beans>
-        <leorpc:registry address="127.0.0.1" port="2181" />
-        <leorpc:server port="9999" scanPackage="com.zhili.api"  ></leorpc:server>
-        <bean id="testService" class="com.zhili.service.impl.TestServiceImpl" />
-    </beans>
+    &ltbeans&gt
+        &ltleorpc:registry address="127.0.0.1" port="2181" /&gt
+        &ltleorpc:server port="9999" scanPackage="com.zhili.api"  &gt&lt/leorpc:server&gt
+        &ltbean id="testService" class="com.zhili.service.impl.TestServiceImpl" /&gt
+    &lt/beans&gt
 </code></pre>
 
