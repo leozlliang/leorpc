@@ -8,6 +8,7 @@ rpc-demo: 可运行demo <br />
 待完善：<br />
 1. 限流(计划用Hytrix或Guva RateLimiter完成)<br />
 2. Netty连接池化<br />
+3. Spring-boot-start实现<br />
 
 
 <pre><code>
