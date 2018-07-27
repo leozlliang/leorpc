@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://www.zhili.com/schema/leorpc" targetNamespace="http://www.zhili.com/schema/leorpc"
+            elementFormDefault="qualified">
+    <xsd:element name="client">
+        <xsd:complexType>
+            <xsd:attribute name="scanPackage" type="xsd:string"  />
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="server">
+        <xsd:complexType>
+            <xsd:attribute name="port" type="xsd:string"  />
+            <xsd:attribute name="scanPackage" type="xsd:string"  />
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="registry">
+        <xsd:complexType>
+            <xsd:attribute name="address" type="xsd:string"  />
+            <xsd:attribute name="port" type="xsd:string"  />
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<property name="LOG_HOME" value="./logs" />
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{MM/dd/yyyy HH:mm:ss} %-5p [Thread: %t] [Class: %c{20}] [Method: %M] [Line: %L]- %m%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="DAILYINFO"
+			  class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${logdir}/livetag_admin_info.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${logdir}/livetag_admin_info.log.%d{yyyy-MM-dd}
+			</fileNamePattern>
+			<maxHistory>365</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{MM/dd/yyyy HH:mm:ss} %-5p [Thread: %t] [Class: %c{20}][Method: %M] [Line: %L]- %m%n</pattern>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>INFO</level>
+		</filter>
+	</appender>
+
+	<appender name="DAILYERROR"
+			  class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${logdir}/livetag_admin_error.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${logdir}/livetag_admin_info_error.log.%d{yyyy-MM-dd}
+			</fileNamePattern>
+			<maxHistory>365</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{MM/dd/yyyy HH:mm:ss} %-5p [Thread: %t] [Class: %c{20}] [Method: %M] [Line: %L]- %m%n</pattern>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>ERROR</level>
+		</filter>
+	</appender>
+
+	<logger name="com.yy.livetag" level="DEBUG"/>
+	<root level="INFO">
+		<appender-ref ref="${rootLogger}" />
+		<appender-ref ref="DAILYERROR" />
+		<appender-ref ref="CONSOLE" />
+
+	</root>
+</configuration>

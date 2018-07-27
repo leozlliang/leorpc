@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:leorpc="http://www.zhili.com/schema/leorpc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                          http://www.zhili.com/schema/leorpc http://www.zhili.com/schema/leorpc.xsd">
+
+    <beans>
+        <leorpc:registry address="127.0.0.1" port="2181" />
+        <leorpc:server port="9999" scanPackage="com.zhili.api"  ></leorpc:server>
+
+        <bean id="testService" class="com.zhili.service.impl.TestServiceImpl" />
+    </beans>
+
+</beans>
