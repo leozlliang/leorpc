@@ -1,4 +1,4 @@
-# leorpc 简单的微服务核心源码demo，供学习用
+# leorpc 简单的微服务核心源码demo
 <br />
 rpc-core: RPC的核心部分，对服务注册，序列化（kryo），netty传输，服务选择(service loadbalance) 等整合<br />
 rpc-netty: Netty小封装，作为RPC的通讯组件 <br />
