@@ -5,12 +5,14 @@
     <xsd:element name="client">
         <xsd:complexType>
             <xsd:attribute name="scanPackage" type="xsd:string"  />
+            <xsd:attribute name="appName" type="xsd:string"  />
         </xsd:complexType>
     </xsd:element>
     <xsd:element name="server">
         <xsd:complexType>
             <xsd:attribute name="port" type="xsd:string"  />
             <xsd:attribute name="scanPackage" type="xsd:string"  />
+            <xsd:attribute name="appName" type="xsd:string"  />
         </xsd:complexType>
     </xsd:element>
     <xsd:element name="registry">

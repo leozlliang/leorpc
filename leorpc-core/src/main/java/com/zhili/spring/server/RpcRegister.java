@@ -27,6 +27,7 @@ import java.util.Set;
 
 public class RpcRegister implements InitializingBean {
     private String scanPackage;
+    private String appName;
     private int port;
     private IServiceDiscovery serviceDiscovery;
     private IServiceSelector serviceSelector;
@@ -72,6 +73,10 @@ public class RpcRegister implements InitializingBean {
         this.serviceSelector = serviceSelector;
     }
 
+    public void setAppName(String appName) {
+        this.appName = appName;
+    }
+
     @Override
     public void afterPropertiesSet() throws Exception {
         String ip = "127.0.0.1";
@@ -84,16 +89,13 @@ public class RpcRegister implements InitializingBean {
 
 
     private void registService() throws Exception{
-        Set<String> clazzSet = ScanPackageUtils.findPackageAnnotationClass(scanPackage,RpcService.class);
-        for(String clazz : clazzSet){
-            ServiceInfo serviceInfo  = new ServiceInfo();
-            serviceInfo.setName(clazz);
-            //String address = NetworkUtil.getServerIp();
-            String address = "127.0.0.1";
-            serviceInfo.setAddress(address);
-            serviceInfo.setPort(port);
-            serviceDiscovery.registService(serviceInfo);
-        }
+        ServiceInfo serviceInfo  = new ServiceInfo();
+        serviceInfo.setName(appName);
+        //String address = NetworkUtil.getServerIp();
+        String address = "127.0.0.1";
+        serviceInfo.setAddress(address);
+        serviceInfo.setPort(port);
+        serviceDiscovery.registService(serviceInfo);
     }
 
 

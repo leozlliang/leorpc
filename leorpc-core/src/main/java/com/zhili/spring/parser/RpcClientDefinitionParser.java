@@ -26,10 +26,11 @@ public class RpcClientDefinitionParser implements BeanDefinitionParser {
         BeanDefinitionRegistry registry = parserContext.getRegistry();
         //注册clientProxy
         BeanDefinitionBuilder rpcClientProxyBeanBuilder = BeanDefinitionBuilder.genericBeanDefinition(RpcClientProxy.class);
+        rpcClientProxyBeanBuilder.addPropertyValue("appName",element.getAttribute("appName"));
         rpcClientProxyBeanBuilder.addPropertyReference("serviceDiscovery","serviceDiscovery");
-        String scanPackage=element.getAttribute("scanPackage");
         registry.registerBeanDefinition("rpcClientProxy",rpcClientProxyBeanBuilder.getBeanDefinition());
         //为每个interface绑定代理
+        String scanPackage=element.getAttribute("scanPackage");
         Set<String> clazzSet = ScanPackageUtils.findPackageAnnotationClass(scanPackage,RpcService.class);
         for(String clazz : clazzSet){
             try {

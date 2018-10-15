@@ -17,6 +17,7 @@ import java.util.List;
  */
 
 public class RpcClientProxy implements InvocationHandler {
+    private String appName;
     private IServiceDiscovery serviceDiscovery;
     private ILoadBalanceStrategy loadBalanceStrategy = new RandomLB();
 
@@ -28,15 +29,18 @@ public class RpcClientProxy implements InvocationHandler {
         this.serviceDiscovery = serviceDiscovery;
     }
 
+    public void setAppName(String appName) {
+        this.appName = appName;
+    }
+
     //private
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        String serviceName = method.getDeclaringClass().getName();
-        ServiceInfo serviceInfo = getServinceInfo(serviceName);
+        ServiceInfo serviceInfo = getServinceInfo(appName);
         SimpleNettyClient client = new SimpleNettyClient(new ClientConfig(serviceInfo.getAddress(),serviceInfo.getPort()));
         client.connect();
         RPCReq req = new RPCReq();
-        req.setServiceName(serviceName);
+        req.setServiceName( method.getDeclaringClass().getName());
         req.setMethod(method.getName());
         req.setParamTypes(method.getParameterTypes());
         req.setParams(args);

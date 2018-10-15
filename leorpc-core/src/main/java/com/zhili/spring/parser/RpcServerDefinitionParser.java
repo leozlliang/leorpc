@@ -28,12 +28,14 @@ public class RpcServerDefinitionParser implements BeanDefinitionParser {
         //
         String scanPackage = element.getAttribute("scanPackage");
         String port = element.getAttribute("port");
-        BeanDefinitionBuilder clientBeanBuilder = BeanDefinitionBuilder.genericBeanDefinition(RpcRegister.class);
-        clientBeanBuilder.addPropertyValue("scanPackage", scanPackage);
-        clientBeanBuilder.addPropertyValue("port", Integer.valueOf(port));
-        clientBeanBuilder.addPropertyReference("serviceDiscovery","serviceDiscovery");
-        clientBeanBuilder.addPropertyReference("serviceSelector","serviceSelector");
-        registry.registerBeanDefinition("rpcRegister", clientBeanBuilder.getBeanDefinition());
+        String appName=element.getAttribute("appName");
+        BeanDefinitionBuilder rpcRegisterBuilder = BeanDefinitionBuilder.genericBeanDefinition(RpcRegister.class);
+        rpcRegisterBuilder.addPropertyValue("scanPackage", scanPackage);
+        rpcRegisterBuilder.addPropertyValue("port", Integer.valueOf(port));
+        rpcRegisterBuilder.addPropertyValue("appName",appName);
+        rpcRegisterBuilder.addPropertyReference("serviceDiscovery","serviceDiscovery");
+        rpcRegisterBuilder.addPropertyReference("serviceSelector","serviceSelector");
+        registry.registerBeanDefinition("rpcRegister", rpcRegisterBuilder.getBeanDefinition());
 
         return null;
     }

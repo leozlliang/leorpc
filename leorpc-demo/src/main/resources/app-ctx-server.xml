@@ -7,7 +7,8 @@
 
     <beans>
         <leorpc:registry address="127.0.0.1" port="2181" />
-        <leorpc:server port="9999" scanPackage="com.zhili.api"  ></leorpc:server>
+
+        <leorpc:server port="9999"  appName="appTest"  ></leorpc:server>
 
         <bean id="testService" class="com.zhili.service.impl.TestServiceImpl" />
     </beans>
