@@ -15,7 +15,7 @@ rpc-demo: 可运行demo <br />
 客户端配置：
     spring.xml:
         &ltleorpc:registry address="127.0.0.1" port="2181" /&gt
-        &ltleorpc:client scanPackage="com.zhili.api" /&gt
+        &ltleorpc:client scanPackage="com.zhili.api" appName="testApp" /&gt
 具体接口：
 @RpcService
 public interface TestService {
@@ -28,7 +28,7 @@ public interface TestService {
 服务端配置：
     spring.xml:
         &ltleorpc:registry address="127.0.0.1" port="2181" /&gt
-        &ltleorpc:server port="9999" scanPackage="com.zhili.api"  &gt&lt/leorpc:server&gt
+        &ltleorpc:server port="9999" scanPackage="com.zhili.api" appName="testApp"  &gt&lt/leorpc:server&gt
         &ltbean id="testService" class="com.zhili.service.impl.TestServiceImpl" /&gt
 </code></pre>
 
